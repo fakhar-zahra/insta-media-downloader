@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instagram Downloader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-4">
+  <div class="w-full max-w-md bg-gray-800 rounded-2xl shadow-lg p-6">
+    <h1 class="text-3xl font-bold text-green-400 mb-6 text-center">Instagram Downloader</h1>
+    <form action="/preview" method="post">
+      <input 
+        type="text" 
+        name="link"
+        placeholder="Paste Instagram post or reel link" 
+        required
+        class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-green-400"
+      >
+      <button 
+        type="submit"
+        class="w-full mt-3 p-3 rounded-lg bg-blue-500 hover:bg-blue-600 transition font-semibold"
+      >
+        View
+      </button>
+    </form>
+    <p class="text-gray-400 text-sm mt-4 text-center">Paste your link & preview media on next page.</p>
+  </div>
+</body>
+</html>
