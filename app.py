@@ -12,7 +12,7 @@ if not os.path.exists(DOWNLOAD_FOLDER):
 
 # 🔑 Global loader with sessionid
 # Yahan apna Instagram sessionid paste karo (DevTools → Cookies → sessionid)
-SESSIONID = "YAHAN_APNA_SESSIONID_PASTE_KARO"
+SESSIONID = "76093494332%3AroCsXTwup2tyAZ%3A26%3AAYdENxawE1-a0hQB9rPJ2oUnnguDFhi6BMxPvDoD2g"
 loader = instaloader.Instaloader()
 loader.context._session.cookies.set("sessionid", SESSIONID)
 
