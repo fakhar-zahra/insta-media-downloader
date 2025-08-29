@@ -10,6 +10,12 @@ DOWNLOAD_FOLDER = "downloads"
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
+# 🔑 Global loader with sessionid
+# Yahan apna Instagram sessionid paste karo (DevTools → Cookies → sessionid)
+SESSIONID = "YAHAN_APNA_SESSIONID_PASTE_KARO"
+loader = instaloader.Instaloader()
+loader.context._session.cookies.set("sessionid", SESSIONID)
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -17,7 +23,6 @@ def index():
 @app.route('/preview', methods=['POST'])
 def preview():
     link = request.form['link']
-    loader = instaloader.Instaloader()
 
     try:
         if "instagram.com/p/" in link or "instagram.com/reel/" in link:
@@ -43,7 +48,6 @@ def preview():
 def download():
     link = request.form['link']
     resolution = request.form.get('resolution', 'high')
-    loader = instaloader.Instaloader()
 
     try:
         if "instagram.com/p/" in link or "instagram.com/reel/" in link:
