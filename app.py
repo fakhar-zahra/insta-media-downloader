@@ -10,19 +10,17 @@ DOWNLOAD_FOLDER = "downloads"
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# 🔑 Instaloader with login session
+# 🔑 Instaloader with session file
 USERNAME = "zahrahussain2025"
-PASSWORD = "Zahra@098"
+SESSION_FILE = os.path.join(os.path.dirname(__file__), f"session-{USERNAME}")
 
 loader = instaloader.Instaloader()
 
-# Load session file if exists, otherwise login and save session
-session_file = f"{USERNAME}.session"
-if os.path.exists(session_file):
-    loader.load_session_from_file(USERNAME, session_file)
-else:
-    loader.login(USERNAME, PASSWORD)
-    loader.save_session_to_file(session_file)
+try:
+    loader.load_session_from_file(USERNAME, SESSION_FILE)
+    print("✅ Session loaded successfully.")
+except Exception as e:
+    print(f"❌ Failed to load session: {e}")
 
 @app.route('/')
 def index():
