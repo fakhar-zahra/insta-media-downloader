@@ -10,11 +10,19 @@ DOWNLOAD_FOLDER = "downloads"
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
 
-# 🔑 Global loader with sessionid
-# Yahan apna Instagram sessionid paste karo (DevTools → Cookies → sessionid)
-SESSIONID = "76093494332%3AroCsXTwup2tyAZ%3A26%3AAYdENxawE1-a0hQB9rPJ2oUnnguDFhi6BMxPvDoD2g"
+# 🔑 Instaloader with login session
+USERNAME = "zahrahussain2025"
+PASSWORD = "Zahra@098"
+
 loader = instaloader.Instaloader()
-loader.context._session.cookies.set("sessionid", SESSIONID)
+
+# Load session file if exists, otherwise login and save session
+session_file = f"{USERNAME}.session"
+if os.path.exists(session_file):
+    loader.load_session_from_file(USERNAME, session_file)
+else:
+    loader.login(USERNAME, PASSWORD)
+    loader.save_session_to_file(session_file)
 
 @app.route('/')
 def index():
